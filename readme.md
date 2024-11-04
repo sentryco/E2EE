@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/E2EE/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/E2EE/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/ed625f6f-4a9d-41fd-9062-0125b74daf67)](https://codebeat.co/projects/github-com-sentryco-e2ee-main)
 
 # E2EE
 
