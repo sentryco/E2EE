@@ -60,13 +60,15 @@ extension E2EETests {
       let encryptedCode: String = try E2EE.getEncryptedCode(
          code: code, // The code to encrypt
          pubKey: remotePubKeyStr, // The public key of the remote party
-         privKey: localKeyPair.priv // The private key of the local party
+         privKey: localKeyPair.priv, 
+         confirmCodeSalt: Cipher.defaultSalt // The private key of the local party
       ) // Encrypt the `code` using the `E2EE.encryptCode` method, the `remotePubKeyStr`, and the private key of the `localKeyPair` object, and assign the resulting encrypted code to `encryptedCode`. If the encryption fails, throw an error.
       // Swift.print("encryptedCode: \(encryptedCode)")
       let decryptedCode: String = try E2EE.getDecryptedCode(
          code: encryptedCode, // The encrypted code to decrypt
          pubKey: remotePubKeyStr, // The public key of the remote party
-         privKey: localKeyPair.priv // The private key of the local party
+         privKey: localKeyPair.priv,
+         confirmCodeSalt: Cipher.defaultSalt // The private key of the local party
       ) // Decrypt the `encryptedCode` using the `E2EE.decryptCode` method, the `remotePubKeyStr`, and the private key of the `localKeyPair` object, and assign the resulting decrypted code to `decryptedCode`. If the decryption fails, throw an error.
       // Swift.print("decryptedCode: \(decryptedCode)")
       let codesAreEqual = code == decryptedCode // Check if initial code is the same as the decrypted one

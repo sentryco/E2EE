@@ -45,14 +45,18 @@ extension InviteKind {
     *                that the code can only be accessed by the intended 
     *                recipient who possesses the corresponding private 
     *                key, thus maintaining the security of the E2EE scheme.
-    * - Parameter externalPubKey: External pub-key
+    * - Parameters:
+    *   - externalPubKey: External pub-key
+    *   - confirmCodeSalt: - Fixme: ⚠️️ add doc
     * - Important: ⚠️️ Use `self.pubKey` on reciver and external `pubkey` on sender
+    * - Returns: - Fixme: ⚠️️ add doc
     */
-   public func getDecryptedConfirmCode(externalPubKey: String) throws -> String {
+   public func getDecryptedConfirmCode(externalPubKey: String, confirmCodeSalt: Data) throws -> String {
       try E2EE.getDecryptedCode(
          code: self.confirmCode, // The encrypted confirmation code to decrypt
          pubKey: externalPubKey, // The remote public key to use for decryption
-         privKey: try Self.getKeyPair().priv // The private key to use for decryption
+         privKey: try Self.getKeyPair().priv, 
+         confirmCodeSalt: confirmCodeSalt // The private key to use for decryption
       ) // Decrypt the encrypted confirmation code with the remote public key
    }
    /**
@@ -61,10 +65,13 @@ extension InviteKind {
     *                used by the invitee in the E2EE scheme to access the 
     *                confirmation code that was encrypted by the inviter.
     * - Important: ⚠️️ Only works for the "invitee" (not "inviter", use decryptCode call for "inviter" etc)
+    * - Parameter confirmCodeSalt: - Fixme: ⚠️️ add doc
+    * - Returns: - Fixme: ⚠️️ add doc
     */
-   public func getConfirmationCode() throws -> String {
+   public func getConfirmationCode(confirmCodeSalt: Data) throws -> String {
       try getDecryptedConfirmCode(
-         externalPubKey: extPubKey // The remote public key to use for decryption
+         externalPubKey: extPubKey, 
+         confirmCodeSalt: confirmCodeSalt // The remote public key to use for decryption
       ) // Decrypt the encrypted confirmation code using the remote public key
    }
 }

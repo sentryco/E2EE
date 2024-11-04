@@ -59,7 +59,7 @@ extension E2EE {
     *   - confirmCodeSalt: Make sure you use your own salt here
     * - Returns: Decrypted confirmation code
     */
-   public static func getDecryptedCode(code: String, pubKey: String, privKey: PrivKey, confirmCodeSalt: Data = Cipher.defaultSalt) throws -> String {
+   public static func getDecryptedCode(code: String, pubKey: String, privKey: PrivKey, confirmCodeSalt: Data/* = Cipher.defaultSalt*/) throws -> String {
       // Attempt to convert the base64 encoded encrypted confirmation code into Data format
       guard let codeData: Data = .init(base64Encoded: code) else {
          throw NSError(domain: "Err ⚠️️ - privateKeyBase64", code: 0)
