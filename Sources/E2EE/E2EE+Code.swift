@@ -23,7 +23,7 @@ extension E2EE {
     *   - confirmCodeSalt: - Fixme: ⚠️️ add doc
     * - Returns: Encrypted confirmation code
     */
-   public static func getEncryptedCode(code: String, pubKey: String, privKey: PrivKey, confirmCodeSalt: Data = Cipher.defaultSalt) throws -> String {
+   public static func getEncryptedCode(code: String, pubKey: String, privKey: PrivKey, confirmCodeSalt: Data/* = Cipher.defaultSalt*/) throws -> String {
       // Attempt to convert the base64 encoded confirmation code into Data format
       guard let codeData: Data = .init(base64Encoded: code) else {
          throw NSError(domain: "⚠️️ err - code data", code: 0)

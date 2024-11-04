@@ -23,7 +23,7 @@ extension InviteKind {
     * - Returns: The encrypted confirmation code.
     * - Throws: An error if the random password generator fails or if the encryption process fails.
     */
-   public static func encryptedConfirmCode(extPubKey: String) throws -> String {
+   public static func encryptedConfirmCode(extPubKey: String, confirmCodeSalt: Data) throws -> String {
       let recipe: RandPSW.PasswordRecipe = .init( // create a password recipe for 4 digits
          charCount: 0, // Number of characters in the password (0 means only digits)
          numCount: 4, // Number of digits in the password
@@ -34,7 +34,8 @@ extension InviteKind {
       return try E2EE.getEncryptedCode(
          code: confirmCode, // The plaintext confirmation code to encrypt
          pubKey: extPubKey, // The remote public key to use for encryption
-         privKey: try Self.getKeyPair().priv // The private key to use for encryption
+         privKey: try Self.getKeyPair().priv, // The private key to use for encryption
+         confirmCodeSalt: confirmCodeSalt // - Fixme: ⚠️️ doc this line
       ) // Encrypt the plaintext confirmation code with the remote public key
    }
    /**
