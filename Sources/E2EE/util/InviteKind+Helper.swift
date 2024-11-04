@@ -45,11 +45,11 @@ extension InviteKind {
     *                that the code can only be accessed by the intended 
     *                recipient who possesses the corresponding private 
     *                key, thus maintaining the security of the E2EE scheme.
+    * - Important: ⚠️️ Use `self.pubKey` on reciver and external `pubkey` on sender
     * - Parameters:
     *   - externalPubKey: External pub-key
-    *   - confirmCodeSalt: - Fixme: ⚠️️ add doc
-    * - Important: ⚠️️ Use `self.pubKey` on reciver and external `pubkey` on sender
-    * - Returns: - Fixme: ⚠️️ add doc
+    *   - confirmCodeSalt: The salt used for generating the shared key during encryption and decryption of the confirmation code.
+    * - Returns: The decrypted confirmation code as a string.
     */
    public func getDecryptedConfirmCode(externalPubKey: String, confirmCodeSalt: Data) throws -> String {
       try E2EE.getDecryptedCode(
@@ -65,8 +65,8 @@ extension InviteKind {
     *                used by the invitee in the E2EE scheme to access the 
     *                confirmation code that was encrypted by the inviter.
     * - Important: ⚠️️ Only works for the "invitee" (not "inviter", use decryptCode call for "inviter" etc)
-    * - Parameter confirmCodeSalt: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * - Parameter confirmCodeSalt: The salt used for generating the shared key during encryption and decryption of the confirmation code.
+    * - Returns: The decrypted confirmation code as a string.
     */
    public func getConfirmationCode(confirmCodeSalt: Data) throws -> String {
       try getDecryptedConfirmCode(

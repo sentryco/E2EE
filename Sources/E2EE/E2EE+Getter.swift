@@ -15,7 +15,7 @@ extension E2EE {
     *                and managed.
     * - Parameters:
     *   - keyName: The name of the key to use for retrieving the public key
-    *   - service: - Fixme: ⚠️️ add doc
+    *   - service: The service identifier for the KeyPair stored in Keychain
     * - Throws: An error if the public key cannot be retrieved or converted to a string
     * - Returns: The public key as a string
     */
@@ -36,9 +36,9 @@ extension E2EE {
     * - Remark: Reads from keychain if one exists or creates a new one
     * - Remark: We can also use privkey to get pub key: try `PubKey(rawRepresentation: privKey.publicKey.rawRepresentation)`
     * - Parameters:
-    *   - keyName: - Fixme: ⚠️️ add doc
-    *   - service: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add dox
+    *   - keyName: The name of the key to use for retrieving or generating the key pair
+    *   - service: The service identifier for the KeyPair stored in Keychain
+    * - Returns: The retrieved or newly generated KeyPair for end-to-end encryption
     */
    internal static func getKeyPair(keyName: String, service: String) throws -> KeyPair {
       let keyQuery: KeyQuery = getKeyQuery(keyName: keyName, service: service) // Create keychain query (used to query keychain)

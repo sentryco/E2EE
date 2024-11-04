@@ -20,7 +20,7 @@ extension E2EE {
     *   - code: Confirmation code (unencrypted)
     *   - pubKey: External pub-key (from remote peer)
     *   - privKey: Internal priv-key (local priv-key, usually stored in keychain)
-    *   - confirmCodeSalt: - Fixme: ⚠️️ add doc
+    *   - confirmCodeSalt: The salt used for generating the shared key during encryption and decryption of the confirmation code.
     * - Returns: Encrypted confirmation code
     */
    public static func getEncryptedCode(code: String, pubKey: String, privKey: PrivKey, confirmCodeSalt: Data/* = Cipher.defaultSalt*/) throws -> String {

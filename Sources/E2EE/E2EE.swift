@@ -38,8 +38,8 @@ extension E2EE {
     *           `BSInvite` ephemeral-key
     * - Parameter key: `keychain key` for the KeyPair stored in 
     *                  Keychain
-    * - Parameter service: - Fixme: ⚠️️ add dox
-    * - Returns: - Fixme: ⚠️️ add doc
+    * - Parameter service: The service identifier for the KeyPair stored in Keychain.
+    * - Returns: The retrieved or newly generated KeyPair for end-to-end encryption.
     */
    public static func keyPair(key: String, service: String) throws -> KeyPair {
       let keyPair: KeyPair = try _keyPair ?? getKeyPair(keyName: key, service: service) // Get the cached keypair or generate a new one if none exists

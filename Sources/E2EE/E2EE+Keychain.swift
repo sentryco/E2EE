@@ -40,9 +40,10 @@ extension E2EE {
     *           part and things work 😅
     * - Remark: Since we don't need to use this keypair in the `AutoFill` 
     *           extension, we don't need to add `accessgroup` (I think)
-    * - Parameter keyName: - Fixme: ⚠️️ add doc
-    * - Parameter service: - Fixme: ⚠️️ add doc
-    * - Returns: - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - keyName: The name of the key to use for retrieving the private key from the Keychain.
+    *   - service: The service identifier for the KeyPair stored in the Keychain.
+    * - Returns: A `KeyQuery` instance used to interact with the iOS Keychain for retrieving the private key.
     */
    public static func getKeyQuery(keyName: String, service: String) -> KeyQuery {
       // ⚠️️ used .userPresence before
