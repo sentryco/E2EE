@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/E2EE/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/E2EE/actions/workflows/Tests.yml)
+
 # E2EE
 
 > Encrypt communication with E2EE
