@@ -60,7 +60,7 @@ extension E2EETests {
       let encryptedCode: String = try E2EE.getEncryptedCode(
          code: code, // The code to encrypt
          pubKey: remotePubKeyStr, // The public key of the remote party
-         privKey: localKeyPair.priv, 
+         privKey: localKeyPair.priv,
          confirmCodeSalt: Cipher.defaultSalt // The private key of the local party
       ) // Encrypt the `code` using the `E2EE.encryptCode` method, the `remotePubKeyStr`, and the private key of the `localKeyPair` object, and assign the resulting encrypted code to `encryptedCode`. If the encryption fails, throw an error.
       // Swift.print("encryptedCode: \(encryptedCode)")

@@ -55,7 +55,7 @@ extension InviteKind {
       try E2EE.getDecryptedCode(
          code: self.confirmCode, // The encrypted confirmation code to decrypt
          pubKey: externalPubKey, // The remote public key to use for decryption
-         privKey: try Self.getKeyPair().priv, 
+         privKey: try Self.getKeyPair().priv,
          confirmCodeSalt: confirmCodeSalt // The private key to use for decryption
       ) // Decrypt the encrypted confirmation code with the remote public key
    }
@@ -70,7 +70,7 @@ extension InviteKind {
     */
    public func getConfirmationCode(confirmCodeSalt: Data) throws -> String {
       try getDecryptedConfirmCode(
-         externalPubKey: extPubKey, 
+         externalPubKey: extPubKey,
          confirmCodeSalt: confirmCodeSalt // The remote public key to use for decryption
       ) // Decrypt the encrypted confirmation code using the remote public key
    }
