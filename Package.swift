@@ -13,10 +13,10 @@ let package = Package(
             targets: ["E2EE"])
     ],
     dependencies: [
-        .package(url: "https://github.com/sentryco/Logger.git", branch: "main"),
+        .package(url: "https://github.com/sentryco/Logger", branch: "main"),
         .package(url: "https://github.com/sentryco/Key", branch: "main"),
         .package(url: "https://github.com/sentryco/Cipher", branch: "main"),
-        .package(url: "https://github.com/sentryco/Dice.git", branch: "main") // Adds Dice as a dependency
+        .package(url: "https://github.com/sentryco/Dice", branch: "main") // Adds Dice as a dependency
     ],
     targets: [
         .target(
