@@ -35,7 +35,7 @@ extension InviteKind {
          code: confirmCode, // The plaintext confirmation code to encrypt
          pubKey: extPubKey, // The remote public key to use for encryption
          privKey: try Self.getKeyPair().priv, // The private key to use for encryption
-         confirmCodeSalt: confirmCodeSalt // - Fixme: ⚠️️ doc this line
+         confirmCodeSalt: confirmCodeSalt // The salt used for generating the shared key during encryption and decryption of the confirmation code
       ) // Encrypt the plaintext confirmation code with the remote public key
    }
    /**
