@@ -9,11 +9,10 @@
 E2EE is a system that ensures only the communicating users can read the messages. In principle, it prevents potential eavesdroppers – including telecom providers, Internet providers, and even the provider of the communication service – from being able to access the cryptographic keys needed to decrypt the conversation.
 
 ## Features
-- **Local Keychain in Secure Enclave**: The private key is stored in the local keychain, which is a secure enclave that provides cryptographic operations and secure storage.
-- **Different Salts**: E2EE uses different salts for different communication types, including "share", "sync", and "confirm".
-- **Priv/Public Key Shared Key**: The system uses a shared key that is derived from the private and public keys.
-- **Ephemeral Share-Code**: E2EE creates a temporary share-code that is used in the setup of the E2EE handshake.
- 
+- 🔐 **Local Keychain in Secure Enclave**: The private key is stored in the local keychain, which is a secure enclave that provides cryptographic operations and secure storage.
+- 🧂 **Different Salts**: E2EE uses different salts for different communication types, including "share", "sync", and "confirm".
+- 🔑 **Priv/Public Key Shared Key**: The system uses a shared key that is derived from the private and public keys.
+- ⏳ **Ephemeral Share-Code**: E2EE creates a temporary share-code that is used in the setup of the E2EE handshake.
 ## Example:
 
 ```swift
